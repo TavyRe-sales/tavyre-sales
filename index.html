@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TavyRe-sales</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    header {
+      background-color: #e0e0e0;
+      padding: 20px;
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+      color: #333;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #d1d1d1;
+      padding: 10px;
+    }
+
+    nav button {
+      background-color: #bcbcbc;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      margin: 0 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    nav button.active {
+      background-color: #9c9c9c;
+    }
+
+    .items-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .item {
+      background-color: #d8d8d8;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .item img {
+      max-width: 100%;
+      border-radius: 10px;
+      background-color: #a9a9a9;
+    }
+
+    .vinted-link {
+      text-align: center;
+      padding: 20px;
+      background-color: #e6e6e6;
+    }
+
+    .vinted-link a {
+      text-decoration: none;
+      background-color: #b0b0b0;
+      padding: 10px 15px;
+      color: #000;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>TavyRe-sales</header>
+
+  <nav>
+    <button onclick="showCategory('shoes')" id="btn-shoes" class="active">Shoes</button>
+    <button onclick="showCategory('clothing')" id="btn-clothing">Clothing</button>
+  </nav>
+
+  <div class="items-container" id="items">
+    <!-- Updated item with real image -->
+    <div class="item" data-category="shoes">
+      <img src="IMG_6193.jpeg" alt="YEEZY Slides 'Dark Onyx'">
+      <p>YEEZY Slides 'Dark Onyx' - £64.99</p>
+    </div>
+    <div class="item" data-category="clothing" style="display:none">
+      <img src="placeholder_clothing.jpg" alt="Clothing 1">
+      <p>Stylish Jacket</p>
+    </div>
+    <!-- Add more items here -->
+  </div>
+
+  <div class="vinted-link">
+    <p>Shop directly on my Vinted account:</p>
+    <a href="https://www.vinted.co.uk/member/167200739" target="_blank">Visit my Vinted</a>
+  </div>
+
+  <script>
+    function showCategory(category) {
+      const items = document.querySelectorAll('.item');
+      items.forEach(item => {
+        item.style.display = item.dataset.category === category ? 'block' : 'none';
+      });
+
+      document.getElementById('btn-shoes').classList.remove('active');
+      document.getElementById('btn-clothing').classList.remove('active');
+      document.getElementById('btn-' + category).classList.add('active');
+    }
+  </script>
+</body>
+</html>
